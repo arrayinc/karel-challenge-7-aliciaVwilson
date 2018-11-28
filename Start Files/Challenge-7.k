@@ -38,7 +38,11 @@ function DeliverValentines(){
 }
 
 function goToRow(){
-	turnLeft();
+	if(facingEast()){
+		turnLeft();
+	} else {
+		turnRight();
+	}
 	move();
 	move();
 	if(leftIsBlocked()){
