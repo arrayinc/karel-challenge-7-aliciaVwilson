@@ -26,3 +26,56 @@ When Karel is finished, all the desks in the room should have a valentine!
 
 import "turns";
 
+function DeliverValentines(){
+	repeat(3){
+		goToRow();
+		if(facingEast()){
+			distributeInRowRight();
+		} else {
+			distributeInRowLeft();
+		}
+	}
+}
+
+function goToRow(){
+	turnLeft();
+	move();
+	move();
+	if(leftIsBlocked()){
+		turnRight();
+	} else {
+		turnLeft();
+	}
+}
+
+function distributeInRowRight(){
+	while(frontIsClear()){
+		if(rightIsBlocked()){
+			putBeeper();
+			move();
+		}
+		if(frontIsClear()){
+			move();
+		}
+	}
+}
+
+function distributeInRowLeft(){
+	while(frontIsClear()){
+		if(leftIsBlocked()){
+			putBeeper();
+			move();
+		}
+		if(frontIsClear()){
+			move();
+		}
+	}
+}
+
+
+
+
+
+
+
+
